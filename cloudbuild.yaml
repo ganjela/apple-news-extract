@@ -14,7 +14,7 @@ steps:
   - --trigger-http
   - --runtime=python310
   - --entry-point=main
-  - --set-env-vars=API_URL=https://newsapi.org/v2/everything?q=apple,LOG_PATH=../apple-news-extract/logs/,PROJECT_ID=apple-news-db6d6
+  - --set-env-vars=API_URL=https://newsapi.org/v2/everything?q=apple,PROJECT_ID=apple-news-db6d6
 #  env:
 #  - 'API_URL=https://newsapi.org/v2/everything?q=apple'
 #  - 'LOG_PATH=../apple-news-extract/logs/'
