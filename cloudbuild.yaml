@@ -8,7 +8,7 @@ steps:
   - gcloud
   - functions
   - deploy
-  - extract
+  - apple_news_extract
   - --region=europe-west1
   - --source=.
   - --trigger-http
