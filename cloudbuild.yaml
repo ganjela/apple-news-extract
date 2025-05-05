@@ -8,11 +8,12 @@ steps:
   - gcloud
   - functions
   - deploy
-  - apple_news_extract
+  - extract
   - --region=europe-west1
   - --source=.
   - --trigger-http
   - --runtime=python310
+  - --entry-point=main
   env:
   - 'API_URL = https://newsapi.org/v2/everything?q=apple'
   - 'LOG_PATH = ../apple-news-extract/logs/'
