@@ -13,4 +13,7 @@ def main(request):
         }
     except Exception as e:
         logger.error(f"Error occurred during data extraction: {e}")
-
+        return {
+            "message": "Error occurred during data extraction",
+            "status": "failure"
+        }
