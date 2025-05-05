@@ -2,7 +2,7 @@ from extract import extract
 from utils.settings import SETTINGS
 from utils.logger import logger
 
-def main():
+def main(*args, **kwargs):
     try:
         extract(SETTINGS.API_URL, SETTINGS.PARAMS)
         logger.info("Data extraction completed successfully")
