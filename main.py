@@ -7,6 +7,10 @@ def main(request):
         request = request.get_json()
         extract(SETTINGS.API_URL, SETTINGS.PARAMS)
         logger.info("Data extraction completed successfully")
+        return {
+            "message": "Data extraction completed successfully",
+            "status": "success"
+        }
     except Exception as e:
         logger.error(f"Error occurred during data extraction: {e}")
 
