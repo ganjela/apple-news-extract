@@ -14,7 +14,6 @@ steps:
   - --trigger-http
   - --runtime=python310
   - --entry-point=main
-  - --port=8080
   env:
   - 'API_URL = https://newsapi.org/v2/everything?q=apple'
   - 'LOG_PATH = ../apple-news-extract/logs/'
