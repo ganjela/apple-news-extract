@@ -1,0 +1,19 @@
+serviceAccount: $SERVICE_ACCOUNT
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - extract
+  - --region=europe-west1
+  - --source=.
+  - --trigger-http
+  - --runtime=python310
+  env:
+  - 'API_URL = https://newsapi.org/v2/everything?q=apple'
+  - 'LOG_PATH = ../apple-news-extract/logs/'
+  - 'PROJECT_ID = apple-news-db6d6'
