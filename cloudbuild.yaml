@@ -15,6 +15,6 @@ steps:
   - --runtime=python310
   - --entry-point=main
   env:
-  - 'API_URL = https://newsapi.org/v2/everything?q=apple'
-  - 'LOG_PATH = ../apple-news-extract/logs/'
-  - 'PROJECT_ID = apple-news-db6d6'
+  - 'API_URL=https://newsapi.org/v2/everything?q=apple'
+  - 'LOG_PATH=../apple-news-extract/logs/'
+  - 'PROJECT_ID=apple-news-db6d6'
