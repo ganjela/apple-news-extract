@@ -1,8 +1,9 @@
+from datetime import datetime
+
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from secret_manager import SecretManager
-from datetime import datetime
+from cloud.secret_manager import SecretManager
 
 load_dotenv()
 
@@ -23,6 +24,10 @@ class Settings(BaseSettings):
     FIRESTORE_COLLECTION: str
     FIRESTORE_DB: str
 
+    BUCKET_NAME: str
+    MAX_WORKERS: int = 100
+
     model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8', extra='ignore')
+
 
 SETTINGS = Settings()

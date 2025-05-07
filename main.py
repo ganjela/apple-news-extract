@@ -1,10 +1,11 @@
+from cloud.firestore import Firestore
+from cloud.gcstorage import AppleImagesUploader
 from extract import extract
-from utils.settings import SETTINGS
 from utils.logger import logger
-from firestore import Firestore
+from utils.settings import SETTINGS
+
 
 def main(request):
-
     missing_dates = request.get_json()["missing_dates"]
     logger.info(f"Received request: {request}")
 
@@ -14,7 +15,11 @@ def main(request):
             "to": date,
             "apiKey": SETTINGS.API_KEY
         })
+
+        AppleImagesUploader().upload(docs["articles"])
+        logger.info("Images uploaded successfully to Google Cloud Storage")
         Firestore().upload_docs(docs["articles"], date)
+        logger.info("Documents uploaded successfully to Firestore")
 
     logger.info("Data extraction completed successfully")
     return {
