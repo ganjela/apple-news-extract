@@ -13,7 +13,7 @@ class GCSUploader:
     def __init__(self):
         self.client = storage.Client()
         self.bucket = self.client.bucket(SETTINGS.BUCKET_NAME)
-        self.max_workers = SETTINGS.MAX_WORKERS
+        self.max_workers = 100
 
     @abstractmethod
     def upload(self, data):

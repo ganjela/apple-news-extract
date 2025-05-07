@@ -25,7 +25,6 @@ class Settings(BaseSettings):
     FIRESTORE_DB: str
 
     BUCKET_NAME: str
-    MAX_WORKERS: int = 100
 
     model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8', extra='ignore')
 
