@@ -9,6 +9,7 @@ def main(request):
     missing_dates = request.get_json()["missing_dates"]
     logger.info(f"Received request: {request}")
 
+    articles = []
     for date in missing_dates:
         docs = extract(SETTINGS.API_URL, {
             "from": date,
@@ -16,6 +17,7 @@ def main(request):
             "apiKey": SETTINGS.API_KEY
         })
 
+        articles.extend(docs["articles"])
         AppleImagesUploader().upload(docs["articles"])
         logger.info("Images uploaded successfully to Google Cloud Storage")
         Firestore().upload_docs(docs["articles"], date)
@@ -23,6 +25,5 @@ def main(request):
 
     logger.info("Data extraction completed successfully")
     return {
-        "message": "Data extraction completed successfully",
-        "status": "success"
+        "articles": articles,
     }
